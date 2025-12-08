@@ -1,7 +1,7 @@
 ## lint-setup-cli
 
 React / Next.js + TypeScript 환경에서 **ESLint / Prettier / VS Code 설정을 한 번에 세팅해 주는 CLI**입니다.  
-템플릿 파일을 복사·병합해서, 바로 사용할 수 있는 설정을 만들어 줍니다.
+템플릿 파일을 복사·병합해서, 즉시 사용할 수 있는 Lint/Format 환경을 구성합니다.
 
 - **템플릿 스타일**
   - `flat-config`: `eslint.config.mjs` (ESLint 9 Flat Config)
@@ -13,26 +13,15 @@ React / Next.js + TypeScript 환경에서 **ESLint / Prettier / VS Code 설정�
   - `.vscode/settings.json`
   - `.vscode/extensions.json`
 
----
+<br/>
 
 ## 설치
-
-패키지 설치:
-
-```bash
-npm install -D lint-setup-cli
-# 또는
-yarn add -D lint-setup-cli
-pnpm add -D lint-setup-cli
-```
-
-`npx`로 한 번만 실행해도 됩니다:
 
 ```bash
 npx lint-setup-cli --type next --template flat-config
 ```
 
----
+<br/>
 
 ## 사용법
 
@@ -47,10 +36,10 @@ npx lint-setup-cli \
 
 - **`--type`**
   - `react`: React 프로젝트용 규칙
-  - `next`: Next.js 프로젝트용 규칙 ( **기본값**)
+  - `next`: Next.js 프로젝트용 규칙 (**기본값**)
 
 - **`--template`**
-  - `flat-config`: `eslint.config.mjs` (ESLint 9 Flat Config, **기본값**)
+  - `flat-config`: `eslint.config.mjs` (**기본값**)
   - `eslintrc`: `.eslintrc.json`
 
 - **`--on-exists`** (기존 설정 파일 처리 방식)
@@ -80,11 +69,11 @@ npx lint-setup-cli --type next --template flat-config
 # 2) Flat Config 기반 React
 npx lint-setup-cli --type react --template flat-config
 
-# 3) eslintrc(.eslintrc.json) 기반 Next.js
+# 3) eslintrc 기반 Next.js
 npx lint-setup-cli --type next --template eslintrc
 ```
 
----
+<br/>
 
 ## 설정 파일 구성
 
@@ -111,8 +100,7 @@ npx lint-setup-cli --type next --template eslintrc
 - 템플릿에만 존재하는 패키지 → `devDependencies`에 추가
 - 이미 존재하는 패키지 → 그대로 유지
 
-> 실제 ESLint / Prettier / 플러그인 설치는 이 병합된 `devDependencies` 기준으로  
-> `npm install` 또는 `pnpm install` 등을 사용해 직접 진행해야 합니다.
+> 실제 ESLint / Prettier / 플러그인 설치는 `npm install` 또는 `pnpm install` 등을 사용해 직접 진행해야 합니다.
 
 ### 4. VS Code 설정
 
@@ -124,18 +112,4 @@ npx lint-setup-cli --type next --template eslintrc
   - `dbaeumer.vscode-eslint` → ESLint 확장
   - `esbenp.prettier-vscode` → Prettier 포매터 확장
   - `streetsidesoftware.code-spell-checker` → 코드/텍스트 철자 검사 확장
-
----
-
-## 로컬 개발 / 테스트
-
-- **`npm link`를 이용한 전역 설치 시뮬레이션**
-  - 1단계: 패키지 저장소 경로 (lint-setup-cli repo):
-    ```bash
-    npm link
-    ```
-  - 2단계: 테스트용 프로젝트 경로:
-    ```bash
-    npm link lint-setup-cli
-    npx lint-setup-cli --type next --template flat-config
-    ```
+  
